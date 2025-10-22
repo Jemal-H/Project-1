@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="blackstyle.css">
+</head>
+<body>
+
+<div class="gamepage">
+
+    <!-- Top bar -->
+    <div class="topbar">
+        <div class="colorbtns">
+            <div class="colorbtn green"></div>
+            <div class="colorbtn blue"></div>
+            <div class="colorbtn red"></div>
+        </div>
+        <div class="money">Balance: $<span class="balance-amount">1000</span></div>
+    </div>
+
+    <!-- Game table -->
+    <div class="gametable">
+
+        <!-- Dealer section -->
+       <div class="dealerside">
+  <div>Dealer: <span class="dealer-score">19</span></div>
+  <div class="cards dealer-cards">
+
+    <div class="card redcard">10♥</div>
+
+    <!-- Wrapper to hold facedown and faceup cards -->
+    <div class="card-wrapper" style="position: relative; width: 70px; height: 100px;">
+      <div class="card facedown">?</div>
+      <div class="card faceup redcard">9♦</div>
+    </div>
+
+  </div>
+</div>
+        <!-- Pot -->
+        <div class="pot-area">
+            <div class="pot">Pot: $<span class="pot-amount">35</span></div>
+        </div>
+
+        <!-- Deck -->
+        <div class="carddeck">
+            <div class="deckcard"></div>
+        </div>
+
+        <!-- Player section -->
+        <div class="playerside">
+            <div class="cards player-cards">
+                <div class="card">Q♠</div>
+                <div class="card">K♣</div>
+            </div>
+            <div>You: <span class="player-score">20</span></div>
+        </div>
+
+    </div>
+
+    <!-- Bottom area -->
+    <div class="bottomarea">
+
+        <!-- Betting area -->
+        <div class="betting">
+            <span class="bettext">Bet: $<span class="current-bet">0</span></span>
+            <div class="chip red-chip animate-chip" style="animation-delay: 1s">$10</div>
+            <div class="chip green-chip animate-chip" style="animation-delay: 2s">$25</div>
+            <div class="chip blue-chip">$50</div>
+            <div class="chip black-chip">$100</div>
+        </div>
+
+        <!-- Game buttons -->
+        <div class="gamebuttons">
+            <button class="hitbtn animate-hit">STAND</button>
+            <button class="standbtn">HIT</button>
+            <button class="doublebtn">DOUBLE</button>
+        </div>
+
+    </div>
+
+    <!-- Result message -->
+    <div class="losemsg">You Won!</div>
+
+</div>
+
+</body>
+</html>
