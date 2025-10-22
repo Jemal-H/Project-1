@@ -9,12 +9,21 @@
 
 <div class="gamepage">
 
+    <!-- Color selection (hidden radio inputs) -->
+    <input type="radio" name="tablecolor" id="green-table" checked>
+    <input type="radio" name="tablecolor" id="blue-table">
+    <input type="radio" name="tablecolor" id="red-table">
+    
+    <!-- Game action controls -->
+    <input type="checkbox" id="stand-action">
+    <input type="checkbox" id="show-result">
+
     <!-- Top bar -->
     <div class="topbar">
         <div class="colorbtns">
-            <div class="colorbtn green"></div>
-            <div class="colorbtn blue"></div>
-            <div class="colorbtn red"></div>
+            <label for="green-table" class="colorbtn green"></label>
+            <label for="blue-table" class="colorbtn blue"></label>
+            <label for="red-table" class="colorbtn red"></label>
         </div>
         <div class="money">Balance: $<span class="balance-amount">1000</span></div>
     </div>
@@ -64,17 +73,18 @@
         <!-- Betting area -->
         <div class="betting">
             <span class="bettext">Bet: $<span class="current-bet">0</span></span>
-            <div class="chip red-chip animate-chip" style="animation-delay: 1s">$10</div>
-            <div class="chip green-chip animate-chip" style="animation-delay: 2s">$25</div>
+            <div class="chip red-chip">$10</div>
+            <div class="chip green-chip">$25</div>
             <div class="chip blue-chip">$50</div>
             <div class="chip black-chip">$100</div>
         </div>
 
         <!-- Game buttons -->
         <div class="gamebuttons">
-            <button class="hitbtn animate-hit">STAND</button>
+            <label for="stand-action" class="button-label hitbtn">STAND</label>
             <button class="standbtn">HIT</button>
             <button class="doublebtn">DOUBLE</button>
+            <label for="show-result" class="button-label" style="background: #4CAF50; color: white; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold;">SHOW RESULT</label>
         </div>
 
     </div>
