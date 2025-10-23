@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Blackjack Game</title>
-    <link rel="stylesheet" href="blackstyle.css">
+    <link rel="stylesheet" href="hit.css">
 </head>
 <body>
-<!-- sets the overall game div for all the parts of the game to be put itno -->
+
 <div class="game">
 
-    <!-- this sets the color background chaning buttons-->
+    <!-- Top bar -->
     <div class="topbar">
         <div class="colorbtns">
             <div class="colorbtn green"></div>
@@ -19,23 +19,25 @@
         <div class="money">Balance: $<span class="balan">1000</span></div>
     </div>
 
-<!-- This is the table where the cards are delt-->
+    <!-- Game table -->
     <div class="table">
 
-        <div class="dealer">
-            <div>Dealer: <span class="deasc">19</span></div>
-            <div class="cards deca">
-                <div class="card redcard">10♥</div>
+        <!-- Dealer section -->
+       <div class="dealer">
+  <div>Dealer: <span class="deasc">19</span></div>
+  <div class="cards deca">
 
-                <!-- this sets one of the dealer cards to be facedown-->
-                <div class="cardwrap">
-                    <div class="card facedown">?</div>
-                    <div class="card faceup redcard">9♦</div>
-                </div>
-            </div>
-        </div>
+    <div class="card redcard">10♥</div>
 
-        <!-- this is the pot-->
+    <!-- Wrapper to hold facedown and faceup cards -->
+    <div class="cardwrap" style="position: relative; width: 70px; height: 100px;">
+      <div class="card facedown">?</div>
+      <div class="card faceup redcard">9♦</div>
+    </div>
+
+  </div>
+</div>
+        <!-- Pot -->
         <div class="potar">
             <div class="pot">Pot: $<span class="potam">35</span></div>
         </div>
@@ -45,19 +47,22 @@
             <div class="deckcard"></div>
         </div>
 
-        <!-- player cards-->
+        <!-- Player section -->
         <div class="player">
             <div class="cards plca">
                 <div class="card">Q♠</div>
                 <div class="card">K♣</div>
+                <div class="card" style = "animation-delay: 7.5s;">K♣</div>
             </div>
             <div>You: <span class="plasc">20</span></div>
         </div>
 
     </div>
 
-    <!-- This is where the chip buttons for betting are and where the stand and hit button are -->
+    <!-- Bottom area -->
     <div class="botar">
+
+        <!-- Betting area -->
         <div class="betar">
             <span class="bettx">Bet: $<span class="currbe">0</span></span>
             <div class="chip redc" style="animation-delay: 1s">$10</div>
@@ -66,15 +71,17 @@
             <div class="chip blackc">$100</div>
         </div>
 
+        <!-- Game buttons -->
         <div class="gabu">
             <button class="hitbtn">STAND</button>
             <button class="standbtn">HIT</button>
             <button class="doublebtn">DOUBLE</button>
         </div>
+
     </div>
 
-    <!-- win message -->
-    <div class="winmsg">You Won!</div>
+    <!-- Result message -->
+    <div class="winmsg">Bust!</div>
 
 </div>
 

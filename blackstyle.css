@@ -1,128 +1,96 @@
 body {
-    margin: 0;
-    font-family: Arial;
-    background: #1a1a2e;
-    color: white;
+    margin: 0;/* Removes default marge */
+    font-family: Arial;/*sets the defualt font for the project */
+    background: #1a1a2e;/*sets background color */
+    color: white;/* makes text whit*/
 }
 
-.gamepage {
-    padding: 20px;
+/* this is where the content goes for the blackjack game */
+.game {
+    padding: 20px;/* add padding inside game so divs are not touching */
 }
 
-/* Hide the radio inputs */
-input[type="radio"],
-input[type="checkbox"] {
-    display: none;
-}
-
+/* this is where the buttons for chaning the background are*/
 .topbar {
-    display: flex;
+    display: flex;/*activates flex box for even spacing*/
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
+/* this are those buttons for changing background*/
 .colorbtns {
-    display: flex;
-    gap: 10px;
+    display: flex; /* add this to the flex layout*/
+    gap: 10px;/* gives space between the buttons */
 }
 
+/* this set the induvidal buttons*/
 .colorbtn {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border: 2px solid white;
+    cursor: pointer;/* creates hover when cursor goes over */
 }
 
 .colorbtn:hover {
-    transform: scale(1.2);
+    transform: scale(1.2);/* this scalse up button a little bit*/
 }
 
-.green { background: darkgreen; }
-.blue { background: darkblue; }
-.red { background: darkred; }
+/* changes the color of the buttons*/
+.green { background: #0a5f38; }
+.blue { background: #1e3a8a; }
+.red { background: #7f1d1d; }
 
-/* Active state for selected color button */
-#green-table:checked ~ .topbar .green {
-    border: 4px solid gold;
-    box-shadow: 0 0 15px gold;
-}
-
-#blue-table:checked ~ .topbar .blue {
-    border: 4px solid gold;
-    box-shadow: 0 0 15px gold;
-}
-
-#red-table:checked ~ .topbar .red {
-    border: 4px solid gold;
-    box-shadow: 0 0 15px gold;
-}
-
+/* this displays the users overall money */
 .money {
     font-size: 24px;
     font-weight: bold;
 }
 
-.gametable {
+/* this is the interal table where the game is played */
+.table {
     background: #0a5f38;
     height: 60vh;
-    border-radius: 200px;
+    border-radius: 200px; /* this makes the table rounded like a real poker table*/
     border: 8px solid #8B4513;
     padding: 40px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;/* this stacks the internal divs top to bottom */
     justify-content: space-between;
-    align-items: center;
-    position: relative;
-    transition: background 0.5s ease;
+    align-items: center;/* alighns children into the center of the table */
+    position: relative;/* this sets that all the divs in the table are positioned relative to the table */
 }
 
-/* Change table color based on selected radio button */
-#green-table:checked ~ .gametable {
-    background: #0a5f38;
-}
-
-#blue-table:checked ~ .gametable {
-    background: #1e3a8a;
-}
-
-#red-table:checked ~ .gametable {
-    background: #7f1d1d;
-}
-
-.pot-area {
-    position: absolute;
+/* this is where the pot amount goes on the table */
+.potar {
+    position: absolute;/* positioned to the table*/
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);/* offsets to exactly the center */
 }
 
+/* this set the pot text*/
 .pot {
     font-size: 24px;
     font-weight: bold;
     color: gold;
-    opacity: 1;
+    opacity: 0;
+    animation: showp 0.5s ease-in 5.5s forwards;/* this makes the amount fade in at 5 and half seconds*/
 }
 
-@keyframes showpot {
-    from { opacity: 0; transform: scale(0.5); }
-    to { opacity: 1; transform: scale(1); }
+/* this animates the pot amount being shown*/
+@keyframes showp {
+    from { opacity: 0; transform: scale(0.5); }/* starts small and invisible*/
+    to { opacity: 1; transform: scale(1); }/* after the animation the pot is fully visible*/
 }
 
-.pot-amount::after {
-    content: '35';
-}
-
-@keyframes changepot {
-    100% { content: '35'; }
-}
-
-.dealerside, .playerside {
+/* this sets the dealer and play card area to be the same */
+.dealer, .player {
     width: 100%;
     text-align: center;
 }
 
+/* this is where the cards are */
 .cards {
     display: flex;
     justify-content: center;
@@ -130,6 +98,7 @@ input[type="checkbox"] {
     margin-top: 15px;
 }
 
+/* this styles the indivual cards*/
 .card {
     width: 70px;
     height: 100px;
@@ -141,143 +110,27 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
+    animation: slidec 0.5s;/*slide animaation with .5 second time for dealing*/
+    opacity: 0;
+    animation-fill-mode: forwards;/* keeps the final place of the animation*/
 }
 
-@keyframes cardslide {
-    from { transform: translateY(-200px); opacity: 0; }
+/* this is what actually runs the card dealing animaton*/
+@keyframes slidec {
+    from { transform: translateY(-200px); opacity: 0; }/*it starts above and invible and slides down to repicate dealing cards*/
     to { transform: translateY(0); opacity: 1; }
 }
 
 .redcard { color: red; }
 
-.facedown {
-    background: blue;
-    color: white;
-}
-
-.carddeck {
-    position: absolute;
-    right: 50px;
-    top: 45%;
-}
-
-.deckcard {
-    width: 70px;
-    height: 100px;
-    background: blue;
-    border-radius: 5px;
-    border: 2px solid white;
-}
-
-.bottomarea {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.betting {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.bettext {
-    font-size: 18px;
-}
-
-@keyframes updatebet {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); color: gold; }
-    100% { transform: scale(1); }
-}
-
-.current-bet::after {
-    content: '35';
-}
-
-@keyframes changbet {
-    100% { content: '35'; }
-}
-
-.chip {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 3px solid white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.chip:hover {
-    transform: scale(1.2);
-}
-
-.red-chip { background: red; }
-.green-chip { background: green; }
-.blue-chip { background: blue; }
-.black-chip { background: black; color: gold; }
-
-.gamebuttons {
-    display: flex;
-    gap: 10px;
-}
-
-button {
-    padding: 15px 30px;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s ease;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-.button-label {
-    padding: 15px 30px;
-    font-size: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    display: inline-block;
-    transition: transform 0.2s ease;
-}
-
-.button-label:hover {
-    transform: scale(1.1);
-}
-
-/* Visual feedback for clicked buttons */
-#stand-action:checked ~ .bottomarea .hitbtn {
-    background: #ff6b00;
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
-}
-
-#show-result:checked ~ .bottomarea .button-label[for="show-result"] {
-    background: #45a049;
-    box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
-}
-
-
-.hitbtn {
-  background: orange; 
-  color: white;
-}
-.card-wrapper {
+/* this makes it so the cards are properly placed next to each other and dont overlap*/
+.cardwrap {
     position: relative;
     width: 70px;
     height: 100px;
 }
 
+/* this styles the cards and the hidden dealer card*/
 .facedown,
 .faceup {
     position: absolute;
@@ -293,69 +146,158 @@ button:hover {
     font-weight: bold;
 }
 
-/* Facedown card styling */
+/* hides the dealer card and */
 .facedown {
     background: blue;
     color: white;
-    z-index: 2;
+    z-index: 2;/* this puts the face down on top of the faceup to create the illusion of turning over the card */
+    animation: hidec 0.8s ease forwards;
+    animation-delay: 8s;
     opacity: 1;
-    transition: opacity 0.5s ease;
 }
 
-/* Faceup card styling */
 .faceup {
     background: white;
     color: red;
     z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-/* When stand button is clicked, reveal dealer card */
-#stand-action:checked ~ .gametable .dealerside .facedown {
+    animation: revelc 0.8s ease forwards;
+    animation-delay: 8s;
     opacity: 0;
 }
 
-#stand-action:checked ~ .gametable .dealerside .faceup {
-    opacity: 1;
+/*this hides the dealer card so it doesnt overlap and then hides the face down card*/
+@keyframes hidec {
+    to { opacity: 0; pointer-events: none; }
 }
 
-/* Dealer reveal keyframes */
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        pointer-events: none;
-    }
+/* this reveals the dealer card*/
+@keyframes revelc {
+    to { opacity: 1; }
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+/* poistions the deck of cards that represents the 52 card deck that would be on a real table*/
+.carddeck {
+    position: absolute;
+    right: 50px;
+    top: 45%;
 }
-.losemsg {
+
+/* this stles that top card*/
+.deckcard {
+    width: 70px;
+    height: 100px;
+    background: blue;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+/* this is the bottom area layout where the chips are */
+.botar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.betar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* this set the styleing for amount bet */
+.bettx {
+    font-size: 18px;
+    animation: betp 0.5s ease-in 5s forwards;
+}
+
+/*this animates the amount bet when the amount bet is chosen*/
+/*when chosen it creates the illusion of movement by starting the text small and then going to its full size*/
+/*so when a bet is chosen it looks interactie*/
+
+@keyframes betp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); color: gold; }
+    100% { transform: scale(1); }
+}
+
+/*this should update the value, but it doenst actually work, should work with php though*/
+
+.currbe::after {
+    content: '10';
+    animation: updateb 0.1s steps(1) 5s forwards;
+}
+
+/*this should animate the update of the pot value but it doesnt work with css*/
+
+@keyframes updateb {
+    100% { content: '35'; }
+}
+
+/*this styles the chips that are used to make bets in the bottom of the table*/
+
+.chip {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.chip:hover {
+    transform: scale(1.2);
+}
+
+/*this styles each value of chip from 10 to */
+
+.redc { background: red; }
+.greenc { background: green; }
+.bluec { background: blue; }
+.blackc { background: black; color: gold; }
+
+/*this sets the buttons for hitting and stadning and doubling, they are the game buttons*/
+.gabu {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+/*this diplays the message that they player won*/
+.winmsg {
     position: fixed;
     top: 45%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%);
     background: #000;
     padding: 40px 80px;
     border-radius: 15px;
     font-size: 40px;
     color: limegreen;
     opacity: 0;
-    z-index: 10;
-    pointer-events: none;
-    transition: all 0.5s ease;
+    animation: showw 0.8s ease forwards; /*this brings up the animation in a natural way*/
+    animation-delay: 9s;/*this makes the message apear after all the other animations have occured*/
+    z-index: 10;/*makes the message appear on top of everything */
 }
 
-/* Show result when checkbox is checked */
-#show-result:checked ~ .losemsg {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-}
 
-@keyframes showwin {
+/*this animates the massage makes it cented and changes it from invisible 0 opacity to 1 opcaity to show message*/
+@keyframes showw {
     from {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.8);

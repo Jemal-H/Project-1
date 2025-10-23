@@ -1,0 +1,291 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #1a1a2e;
+    color: white;
+}
+
+.game {
+    padding: 20px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.colorbtns {
+    display: flex;
+    gap: 10px;
+}
+
+.colorbtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.colorbtn:hover {
+    transform: scale(1.2);
+}
+
+.green { background: #0a5f38; }
+.blue { background: #1e3a8a; }
+.red { background: #7f1d1d; }
+
+.money {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.table {
+    background: #0a5f38;
+    height: 60vh;
+    border-radius: 200px;
+    border: 8px solid #8B4513;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.potar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pot {
+    font-size: 24px;
+    font-weight: bold;
+    color: gold;
+    opacity: 0;
+    animation: showp 0.5s ease-in 5.5s forwards;
+}
+
+@keyframes showp {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.potam::after {
+    content: '0';
+    animation: updateb 0.1s steps(1) 5.5s forwards;
+}
+
+@keyframes updateb {
+    100% { content: '35'; }
+}
+
+.dealer, .player {
+    width: 100%;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.card {
+    width: 70px;
+    height: 100px;
+    background: white;
+    border-radius: 5px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slidec 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slidec {
+    from { transform: translateY(-200px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.redcard { color: red; }
+
+.facedown {
+    background: blue;
+    color: white;
+}
+
+.carddeck {
+    position: absolute;
+    right: 50px;
+    top: 45%;
+}
+
+.deckcard {
+    width: 70px;
+    height: 100px;
+    background: blue;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.botar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.betar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.bettx {
+    font-size: 18px;
+    animation: betp 0.5s ease-in 5s forwards;
+}
+
+@keyframes betp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); color: gold; }
+    100% { transform: scale(1); }
+}
+
+.currbe::after {
+    content: '0';
+    animation: updateb 0.1s steps(1) 5s forwards;
+}
+
+.chip {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.chip:hover {
+    transform: scale(1.2);
+}
+
+.redc { background: red; }
+.greenc { background: green; }
+.bluec { background: blue; }
+.blackc { background: black; color: gold; }
+
+.gabu {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+
+.hitbtn {
+  background: orange; 
+  color: white; 
+  animation: standac 0.6s ease;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
+.cardwrap {
+    position: relative;
+    width: 70px;
+    height: 100px;
+}
+
+.facedown,
+.faceup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.facedown {
+    background: blue;
+    color: white;
+    z-index: 2;
+    animation: hidec 0.8s ease forwards;
+    animation-delay: 8s;
+    opacity: 1;
+}
+
+.faceup {
+    background: white;
+    color: red;
+    z-index: 1;
+    animation: revelc 0.8s ease forwards;
+    animation-delay: 8s;
+    opacity: 0;
+}
+
+@keyframes hidec {
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@keyframes revelc {
+    to {
+        opacity: 1;
+    }
+}
+.winmsg {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    padding: 40px 80px;
+    border-radius: 15px;
+    font-size: 40px;
+    color: limegreen;
+    opacity: 0;
+    animation: showw 0.8s ease forwards;
+    animation-delay: 9s;
+    z-index: 10;
+}
+
+@keyframes showw {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

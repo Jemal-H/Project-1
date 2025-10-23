@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="if.css" />
+</head>
+<body>
+
+<div class="gamepa">
+
+    <div class="topba">
+        <div class="colorbtns">
+            <div class="colorbtn green"></div>
+            <div class="colorbtn blue"></div>
+            <div class="colorbtn red"></div>
+        </div>
+        <div class="money">Balance: $<span class="balance-amount">10</span></div>
+    </div>
+
+  
+    <div class="gametb">
+
+    
+        <div class="dealsi">
+            <div>Dealer: <span class="dealer-score">19</span></div>
+            <div class="cards dealer-cards">
+
+                <div class="card redcard">10♥</div>
+
+                <div class="cardwr" style="position: relative; width: 70px; height: 100px;">
+                    <div class="card facedown">?</div>
+                    <div class="card faceup redcard">9♦</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Pot -->
+        <div class="potar">
+            <div class="pot">Pot: $<span class="potam">1</span></div>
+        </div>
+
+        <!-- Deck -->
+        <div class="carddeck">
+            <div class="deckcard"></div>
+        </div>
+
+        <div class="playsi">
+            <div class="cards player-cards">
+                <div class="card">k♠</div>
+                <div class="card">7♣</div>
+                <!-- these are the cards that are added to relicate hit -->
+                <div class="card" style="animation-delay: 7.5s;">2♣</div>
+                <div class="card" style="animation-delay: 10s;">2♠</div>
+            </div>
+            <div>You: <span class="player-score">21</span></div>
+        </div>
+
+    </div>
+
+    <div class="botar">
+
+        <div class="betar">
+            <span class="bettx">Bet: $<span class="currbe">0</span></span>
+            <div class="chip redchip animatechip" style="animation-delay: 1s">$10</div>
+            <div class="chip greenchip animatechip" style="animation-delay: 2s">$25</div>
+            <div class="chip bluechip">$50</div>
+            <div class="chip blackchip">$100</div>
+        </div>
+
+        <div class="gabu">
+            <button class="hitbtn animate-hit">STAND</button>
+            <button class="standbtn">HIT</button>
+            <button class="doublebtn">DOUBLE</button>
+        </div>
+
+    </div>
+
+    <div class="ifmsg">invalid chip amount!</div>
+
+    <div class="losemsg">BlackJack!</div>
+
+</div>
+
+</body>
+</html>

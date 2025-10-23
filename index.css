@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial;
+  background: #054b29;
+  color: white;
+  height: 100vh;
+}
+
+/* home page */
+#home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#home h1 {
+  font-size: 5em;
+  margin-bottom: 30px;
+}
+
+#home a {
+  padding: 15px 40px;
+  font-size: 1.8em;
+  background: #f1c40f;
+  color: #333;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#home a:hover {
+  background: #f39c12;
+  transform: scale(1.05);
+}
+
+/* game page */
+#game {
+  padding: 20px;
+  text-align: center;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.themes {
+  display: flex;
+  gap: 10px;
+}
+
+.thm {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  border-radius: 3px;
+}
+
+.bal {
+  font-size: 1.5em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+/* dealer and player */
+.dealarea, .playarea {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.dealarea h3, .playarea h3 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.crds {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* cards */
+.crd {
+  width: 70px;
+  height: 100px;
+  background: white;
+  border: 1px solid #333;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  color: black;
+  font-weight: bold;
+}
+
+.dealarea .crds .crd:first-child {
+  background: red;
+  color: white;
+}
+
+/* chips */
+.chps {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.chp {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffcc00;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  border: 3px solid #b38f00;
+}
+
+.chp:hover {
+  transform: scale(1.05);
+}
+
+/* buttons */
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 15px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+.hitbtn {
+  background: #2ecc71;
+}
+
+.standbtn {
+  background: #e74c3c;
+}
+
+.doublebtn {
+  background: #3498db;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.back {
+  color: white;
+  margin-top: 20px;
+  display: inline-block;
+}
